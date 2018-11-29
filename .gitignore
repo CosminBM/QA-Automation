@@ -1,6 +1,0 @@
-# Ignore file named 'README.md'
-README.md
-
-# Ignore folder named '.idea'
-.*
-!/.gitignore
