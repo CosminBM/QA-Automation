@@ -18,8 +18,8 @@ public class Main {
         System.out.println();
 
         System.out.println("Method 2");
-        for ( int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + "  ");
 
         }
         System.out.println();
