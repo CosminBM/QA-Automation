@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int array[] = {5, 7, 2, 4, 8, 9, 6};
+        int array[] = {5, 7, 2, 4, 8, 13, 6};
         int min = array[0];
         int max = 0;
 

@@ -9,16 +9,21 @@ public class Main1 {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
-        System.out.println("Type 5 numbers");
+        System.out.println("Type 5 numbers:");
 
-        int[] array = new int[5];
-        int min = array.length;
-        int max = 0;
+        int array[] = new int[5];
+
+        for (int j = 0; j < array.length; j++) {
+
+            array[j] = reader.nextInt();
+
+        }
+
+        int min = Integer.MAX_VALUE;
+        int max = array[0];
+
 
         for (int i = 0; i < array.length; i++) {
-            System.out.print("Type a number: ");
-            array[i] = reader.nextInt();
-
 
             if (min > array[i]) {
 
