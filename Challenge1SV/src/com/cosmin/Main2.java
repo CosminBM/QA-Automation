@@ -2,9 +2,7 @@ package com.cosmin;
 
 import java.util.Scanner;
 
-
-public class Main1 {
-
+public class Main2 {
 
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
@@ -12,18 +10,12 @@ public class Main1 {
         System.out.println("Type 5 numbers:");
 
         int array[] = new int[5];
-
-        for (int j = 0; j < array.length; j++) {
-
-            array[j] = reader.nextInt();
-
-        }
-
-        int min = array[0];
-        int max = array[0];
-
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
 
         for (int i = 1; i < array.length; i++) {
+
+            array[i] = reader.nextInt();
 
             if (min > array[i]) {
 
@@ -41,6 +33,5 @@ public class Main1 {
         System.out.println("The difference between max and min is: " + diff);
 
     }
-
 
 }
