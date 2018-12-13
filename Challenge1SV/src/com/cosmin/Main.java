@@ -28,6 +28,8 @@ public class Main {
 
         System.out.println();
         int diff = max - min;
+        System.out.println("The minimum number is: " + min);
+        System.out.println("The maximum number is: " + max);
         System.out.println("The difference between max and min is: " + diff);
 
     }
