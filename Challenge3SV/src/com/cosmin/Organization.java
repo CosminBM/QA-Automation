@@ -23,13 +23,11 @@ public class Organization {
     }
 
 
-    public void editEmployees(Employee person, String name, int age, String sex, String department) {
-
-
+    public void editEmployees(Employee updatedEmployee) {
 
     }
 
-    public void searchEmployees() {
+    public void searchEmployees(Employee searchEmployee, String name, int age, String sex, String department) {
 
     }
 
