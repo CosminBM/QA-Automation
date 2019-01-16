@@ -4,23 +4,32 @@ import java.util.*;
 
 public class Organization {
 
-    private ArrayList<Employees> organization = new ArrayList<>();
+    private List<Employee> employees = new ArrayList<Employee>();
 
 
-    public void addEmployees(Employees employee) {
+    public void addEmployees(Employee person) {
 
-        this.organization.add(employee);
+        this.employees.add(person);
+    }
+
+    public void removeEmployees(Employee person) {
+
+        if(employees.contains(person)){
+            employees.remove(person);
+        } else{
+            System.out.println("The list of the employees is " + employees.size());
+        }
+
+    }
+
+
+    public void editEmployees(Employee person, String name, int age, String sex, String department) {
+
+
+
     }
 
     public void searchEmployees() {
-
-    }
-
-    public void removeEmployees() {
-
-    }
-
-    public void editEmployees() {
 
     }
 
