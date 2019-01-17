@@ -9,6 +9,22 @@ public class Employee {
     private String sex;
     private String department;
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getSex() {
+        return this.sex;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public String getDepartment() {
+        return this.department;
+    }
+
 
     public Employee(String name, int age, String sex, String department) {
 
@@ -16,6 +32,7 @@ public class Employee {
         this.age = age;
         this.sex = sex;
         this.department = department;
+
 
     }
 
