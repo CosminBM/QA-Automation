@@ -7,12 +7,12 @@ public class Organization {
     private List<Employee> employees = new ArrayList<Employee>();
 
 
-    public void addEmployees(Employee person) {
+    public void add(Employee person) {
 
         this.employees.add(person);
     }
 
-    public void removeEmployees(Employee person) {
+    public void remove(Employee person) {
 
         if(employees.contains(person)){
             employees.remove(person);
@@ -23,11 +23,17 @@ public class Organization {
     }
 
 
-    public void editEmployees(Employee updatedEmployee) {
+    public void edit(Employee person) {
 
     }
 
-    public void searchEmployees(Employee searchEmployee, String name, int age, String sex, String department) {
+    public void search(Employee person) {
+
+        HashMap<Employee, Object> data = new HashMap<>();
+
+
+
+
 
     }
 
