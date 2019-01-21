@@ -6,7 +6,6 @@ public class Organization {
 
     private List<Employee> employees = new ArrayList<Employee>();
 
-
     public void add(Employee employee) {
         this.employees.add(employee);
     }
@@ -35,9 +34,9 @@ public class Organization {
         return null;
     }
 
-    public Employee searchGender(String gender) {
+    public Employee searchGender(Employee.Gender gender) {
         for (Employee employee : employees) {
-            if (gender != null && gender.equalsIgnoreCase(employee.getGender())) {
+            if (gender != null && gender == (employee.getGender())) {
                 return employee;
             }
         }
@@ -55,8 +54,5 @@ public class Organization {
 
     public void edit(Employee employee) {
 
-
     }
-
-
 }

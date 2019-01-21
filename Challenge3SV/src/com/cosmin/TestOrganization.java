@@ -6,28 +6,23 @@ public class TestOrganization {
 
     public static void main(String[] args) {
 
-        Employee employee1 = new Employee("Andrei", 24, "Male", "QA");
-        Employee employee2 = new Employee("Marius", 33, "Male", "IT");
-        Employee employee3 = new Employee("Clara", 22, "Female", "HR");
-        Employee employee4 = new Employee("Cristi", 40, "Male", "DEV");
+        Employee employee1 = new Employee("Andrei", 24, Employee.Gender.MALE, "QA");
+        Employee employee2 = new Employee("Marius", 33, Employee.Gender.MALE, "IT");
+        Employee employee3 = new Employee("Clara", 22, Employee.Gender.FEMALE, "HR");
+        Employee employee4 = new Employee("Cristi", 40, Employee.Gender.MALE, "DEV");
         employee1.setName("Adrian");
         employee2.setAge(43);
         employee3.setDepartment("DEV");
-        employee4.setGender("Unknown");
-
-
+        employee4.setGender(Employee.Gender.MALE);
 
         Organization testOrga = new Organization();
         testOrga.add(employee1);
         testOrga.add(employee2);
         testOrga.add(employee3);
-        System.out.println((testOrga.searchAge(22)));
-        System.out.println(testOrga.searchDepartment("IT"));
-        System.out.println(testOrga.searchName("Clara"));
-        System.out.println(testOrga.searchGender("Male"));
-
-
+        testOrga.add(employee4);
+        System.out.println((testOrga.searchAge(22).getName()));
+        System.out.println(testOrga.searchDepartment("IT").getName());
+        System.out.println(testOrga.searchName("Clara").getGender());
+        System.out.println(testOrga.searchGender(Employee.Gender.MALE).getName());
     }
-
-
 }

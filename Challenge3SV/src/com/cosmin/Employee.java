@@ -5,30 +5,32 @@ import java.util.*;
 public class Employee {
     private String name;
     private int age;
-    private String gender;
+    private Gender gender;
     private String department;
+
+    public Employee(String name, int age, Gender gender, String department) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.department = department;
+    }
+
+    public enum Gender{FEMALE, MALE, UNKNOWN}
 
     public String getName() {
         return this.name;
-    }
-
-    public String getGender() {
-        return this.gender;
     }
 
     public int getAge() {
         return this.age;
     }
 
-    public String getDepartment() {
-        return this.department;
+    public Gender getGender() {
+        return this.gender;
     }
 
-    public Employee(String name, int age, String gender, String department) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.department = department;
+    public String getDepartment() {
+        return this.department;
     }
 
     public void setName(String newName) {
@@ -39,12 +41,11 @@ public class Employee {
         this.age = newAge;
     }
 
-    public void setGender(String newGender) {
+    public void setGender(Gender newGender) {
         this.gender = newGender;
     }
 
     public void setDepartment(String newDepartment) {
         this.department = newDepartment;
     }
-
 }
