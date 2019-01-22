@@ -31,7 +31,7 @@ public class Organization {
 
     public List searchAge(int age) {
         List<Employee> search = this.employees.stream().filter(n -> n.getAge() == (age)).collect(Collectors.toList());
-        search.forEach(s -> System.out.println(s.getName()));
+        search.forEach(s -> System.out.println(s.getAge() + ", " + s.getName()));
         return null;
 //        for (Employee employee : employees) {
 //            if (age != 0 && age == (employee.getAge())) {
@@ -43,7 +43,7 @@ public class Organization {
 
     public List searchGender(Employee.Gender gender) {
         List<Employee> search = this.employees.stream().filter(n -> n.getGender().equals(gender)).collect(Collectors.toList());
-        search.forEach(s -> System.out.println(s.getName()));
+        search.forEach(s -> System.out.println(s.getGender() + ", " + s.getName()));
         return null;
 //        for (Employee employee : employees) {
 //            if (gender != null && gender == (employee.getGender())) {
@@ -55,7 +55,7 @@ public class Organization {
 
     public List searchDepartment(String department) {
         List<Employee> search = this.employees.stream().filter(n -> n.getDepartment().equals(department)).collect(Collectors.toList());
-        search.forEach(s -> System.out.println(s.getName()));
+        search.forEach(s -> System.out.println(s.getDepartment() + ", " + s.getName()));
         return null;
 //        for (Employee employee : employees) {
 //            if (department != null && department.equalsIgnoreCase(employee.getDepartment())) {
