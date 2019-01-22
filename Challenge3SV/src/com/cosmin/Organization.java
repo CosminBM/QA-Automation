@@ -17,41 +17,52 @@ public class Organization {
         }
     }
 
-    public Employee searchName(String name) {
-//        List<Employee> search = this.employees.stream().filter(n -> n.getName().equals(name)).collect(Collectors.toList());
-        for (Employee employee : employees) {
-            if (name != null && name.equalsIgnoreCase(employee.getName())) {
-                return employee;
-            }
-        }
+    public List searchName(String name) {
+        List<Employee> search = this.employees.stream().filter(n -> n.getName().equals(name)).collect(Collectors.toList());
+        search.forEach(s -> System.out.println(s.getName()));
         return null;
+//        for (Employee employee : employees) {
+//            if (name != null && name.equalsIgnoreCase(employee.getName())) {
+//                return employee;
+//            }
+//        }
+//        return null;
     }
 
-    public Employee searchAge(int age) {
-        for (Employee employee : employees) {
-            if (age != 0 && age == (employee.getAge())) {
-                return employee;
-            }
-        }
+    public List searchAge(int age) {
+        List<Employee> search = this.employees.stream().filter(n -> n.getAge() == (age)).collect(Collectors.toList());
+        search.forEach(s -> System.out.println(s.getName()));
         return null;
+//        for (Employee employee : employees) {
+//            if (age != 0 && age == (employee.getAge())) {
+//                return employee;
+//            }
+//        }
+//        return null;
     }
 
-    public Employee searchGender(Employee.Gender gender) {
-        for (Employee employee : employees) {
-            if (gender != null && gender == (employee.getGender())) {
-                return employee;
-            }
-        }
+    public List searchGender(Employee.Gender gender) {
+        List<Employee> search = this.employees.stream().filter(n -> n.getGender().equals(gender)).collect(Collectors.toList());
+        search.forEach(s -> System.out.println(s.getName()));
         return null;
+//        for (Employee employee : employees) {
+//            if (gender != null && gender == (employee.getGender())) {
+//                return employee;
+//            }
+//        }
+//        return null;
     }
 
-    public Employee searchDepartment(String department) {
-        for (Employee employee : employees) {
-            if (department != null && department.equalsIgnoreCase(employee.getDepartment())) {
-                return employee;
-            }
-        }
+    public List searchDepartment(String department) {
+        List<Employee> search = this.employees.stream().filter(n -> n.getDepartment().equals(department)).collect(Collectors.toList());
+        search.forEach(s -> System.out.println(s.getName()));
         return null;
+//        for (Employee employee : employees) {
+//            if (department != null && department.equalsIgnoreCase(employee.getDepartment())) {
+//                return employee;
+//            }
+//        }
+//        return null;
     }
 
     public void edit(Employee employee) {
