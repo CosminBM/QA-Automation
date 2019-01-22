@@ -8,7 +8,7 @@ public class TestOrganization {
 
         Employee employee1 = new Employee("Andrei", 24, Employee.Gender.MALE, "QA");
         Employee employee2 = new Employee("Marius", 33, Employee.Gender.MALE, "IT");
-        Employee employee3 = new Employee("Clara", 22, Employee.Gender.FEMALE, "HR");
+        Employee employee3 = new Employee("Clara", 22, Employee.Gender.FEMALE, "IT");
         Employee employee4 = new Employee("Cristi", 40, Employee.Gender.MALE, "DEV");
         employee1.setName("Adrian");
         employee2.setAge(43);

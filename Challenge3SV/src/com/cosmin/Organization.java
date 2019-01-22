@@ -1,6 +1,7 @@
 package com.cosmin;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Organization {
 
@@ -17,6 +18,7 @@ public class Organization {
     }
 
     public Employee searchName(String name) {
+//        List<Employee> search = this.employees.stream().filter(n -> n.getName().equals(name)).collect(Collectors.toList());
         for (Employee employee : employees) {
             if (name != null && name.equalsIgnoreCase(employee.getName())) {
                 return employee;
