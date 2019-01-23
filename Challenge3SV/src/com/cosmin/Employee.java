@@ -15,7 +15,7 @@ public class Employee {
         this.department = department;
     }
 
-    public enum Gender{FEMALE, MALE, UNKNOWN}
+    public enum Gender {FEMALE, MALE, UNKNOWN}
 
     public String getName() {
         return this.name;

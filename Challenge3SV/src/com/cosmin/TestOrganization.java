@@ -12,7 +12,7 @@ public class TestOrganization {
         Employee employee4 = new Employee("Mihai", 40, Employee.Gender.MALE, "DEV");
         Employee employee5 = new Employee("Adrian", 33, Employee.Gender.MALE, "QA");
         Employee employee6 = new Employee("Andreea", 25, Employee.Gender.FEMALE, "HR");
-        Employee employee7 = new Employee("Clara", 25, Employee.Gender.FEMALE,"DEV");
+        Employee employee7 = new Employee("Clara", 25, Employee.Gender.FEMALE, "DEV");
 
 //        employee1.setName("Adrian");
 //        employee2.setAge(43);
@@ -27,9 +27,29 @@ public class TestOrganization {
         testOrga.add(employee5);
         testOrga.add(employee6);
         testOrga.add(employee7);
-        testOrga.searchAge(25).forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " +  employee.getDepartment()));
-        testOrga.searchName("Clara").forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " +  employee.getDepartment()));
-        testOrga.searchDepartment("DEV").forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " +  employee.getDepartment()));
-        testOrga.searchGender(Employee.Gender.MALE).forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " +  employee.getDepartment()));
+
+        if (testOrga.searchName("Clara").size() == 0) {
+            System.out.println("Invalid name!");
+        } else {
+            testOrga.searchName("Clara").forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " + employee.getDepartment()));
+        }
+
+        if (testOrga.searchAge(22).size() == 0) {
+            System.out.println("Invalid age!");
+        } else {
+            testOrga.searchAge(22).forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " + employee.getDepartment()));
+        }
+
+        if (testOrga.searchDepartment("DEV").size() == 0) {
+            System.out.println("Invalid department!");
+        } else {
+            testOrga.searchDepartment("").forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " + employee.getDepartment()));
+        }
+
+        if (testOrga.searchGender(Employee.Gender.MALE).size() == 0) {
+            System.out.println("Invalid gender!");
+        } else {
+            testOrga.searchGender(Employee.Gender.MALE).forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " + employee.getDepartment()));
+        }
     }
 }
