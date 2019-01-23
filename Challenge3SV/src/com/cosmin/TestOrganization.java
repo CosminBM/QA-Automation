@@ -14,10 +14,10 @@ public class TestOrganization {
         Employee employee6 = new Employee("Andreea", 25, Employee.Gender.FEMALE, "HR");
         Employee employee7 = new Employee("Clara", 25, Employee.Gender.FEMALE,"DEV");
 
-        employee1.setName("Adrian");
-        employee2.setAge(43);
-        employee3.setDepartment("DEV");
-        employee4.setGender(Employee.Gender.FEMALE);
+//        employee1.setName("Adrian");
+//        employee2.setAge(43);
+//        employee3.setDepartment("DEV");
+//        employee4.setGender(Employee.Gender.FEMALE);
 
         Organization testOrga = new Organization();
         testOrga.add(employee1);
@@ -27,9 +27,9 @@ public class TestOrganization {
         testOrga.add(employee5);
         testOrga.add(employee6);
         testOrga.add(employee7);
-        System.out.println(testOrga.searchAge(25));
-        System.out.println(testOrga.searchDepartment("IT"));
-        System.out.println(testOrga.searchName("Clara"));
-        System.out.println(testOrga.searchGender(Employee.Gender.MALE));
+        testOrga.searchAge(25).forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " +  employee.getDepartment()));
+        testOrga.searchName("Clara").forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " +  employee.getDepartment()));
+        testOrga.searchDepartment("DEV").forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " +  employee.getDepartment()));
+        testOrga.searchGender(Employee.Gender.MALE).forEach(employee -> System.out.println(employee.getName() + ", " + employee.getAge() + ", " + employee.getGender() + ", " +  employee.getDepartment()));
     }
 }
