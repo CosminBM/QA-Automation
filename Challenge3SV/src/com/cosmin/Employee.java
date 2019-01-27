@@ -6,16 +6,15 @@ public class Employee {
     private String name;
     private int age;
     private Gender gender;
-    private String department;
+    private Department department;
 
-    public Employee(String name, int age, Gender gender, String department) {
+    public Employee(String name, int age, Gender gender, Department department) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.department = department;
     }
 
-    public enum Gender {FEMALE, MALE, UNKNOWN}
 
     public String getName() {
         return this.name;
@@ -29,7 +28,7 @@ public class Employee {
         return this.gender;
     }
 
-    public String getDepartment() {
+    public Department getDepartment() {
         return this.department;
     }
 
@@ -45,7 +44,7 @@ public class Employee {
         this.gender = newGender;
     }
 
-    public void setDepartment(String newDepartment) {
+    public void setDepartment(Department newDepartment) {
         this.department = newDepartment;
     }
 }

@@ -18,26 +18,35 @@ public class Organization {
     }
 
     public List<Employee> searchName(String name) {
-        List<Employee> search = this.employees.stream().filter(employee -> employee.getName().equals(name)).collect(Collectors.toList());
+        List<Employee> search = this.employees.stream().filter
+                (employee -> employee.getName().equals(name)).collect(Collectors.toList());
         return search;
     }
 
     public List<Employee> searchAge(int age) {
-        List<Employee> search = this.employees.stream().filter(employee -> employee.getAge() == (age)).collect(Collectors.toList());
+        List<Employee> search = this.employees.stream().filter
+                (employee -> employee.getAge() == (age)).collect(Collectors.toList());
         return search;
     }
 
-    public List<Employee> searchGender(Employee.Gender gender) {
-        List<Employee> search = this.employees.stream().filter(employee -> employee.getGender().equals(gender)).collect(Collectors.toList());
+    public List<Employee> searchGender(Gender gender) {
+        List<Employee> search = this.employees.stream().filter
+                (employee -> employee.getGender().equals(gender)).collect(Collectors.toList());
         return search;
     }
 
-    public List<Employee> searchDepartment(String department) {
-        List<Employee> search = this.employees.stream().filter(employee -> employee.getDepartment().equals(department)).collect(Collectors.toList());
+    public List<Employee> searchDepartment(Department department) {
+        List<Employee> search = this.employees.stream().filter
+                (employee -> employee.getDepartment().equals(department)).collect(Collectors.toList());
         return search;
     }
 
-    public void edit(Employee employee) {
+//    TBD
+//    public List<Employee> updateByName(String employee, String name) {
+//        List<Employee> names = searchName(employee);
+//        names.forEach(emp -> emp.setName(name));
+//        return names;
+//    }
 
-    }
+
 }
