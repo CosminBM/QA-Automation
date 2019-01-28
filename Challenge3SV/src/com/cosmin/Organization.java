@@ -42,11 +42,11 @@ public class Organization {
     }
 
 //    TBD
-//    public List<Employee> updateByName(String employee, String name) {
-//        List<Employee> names = searchName(employee);
-//        names.forEach(emp -> emp.setName(name));
-//        return names;
-//    }
+    public List<Employee> updateEmpByName(Employee employee, String name) {
+        List<Employee> empList = searchName(name);
+        empList.stream().filter(emp -> emp.getName().equals(employee.getName()));
+        return empList;
+    }
 
 
 }

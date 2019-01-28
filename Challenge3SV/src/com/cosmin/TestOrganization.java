@@ -55,7 +55,10 @@ public class TestOrganization {
             testOrga.searchGender(Gender.MALE).forEach(employee -> System.out.println(employee.getName() + ", "
                     + employee.getAge() + ", " + employee.getGender() + ", " + employee.getDepartment()));
         }
-//        testOrga.updateByName("Andrei", "Clara");
+
+        testOrga.updateEmpByName(employee1, "Clara");
+        List<Employee> updList = testOrga.updateEmpByName(employee1,"Clara");
+        updList.forEach(employee -> System.out.println(employee.getAge()));
 
 
     }
