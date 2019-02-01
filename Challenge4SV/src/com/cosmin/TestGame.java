@@ -6,7 +6,7 @@ public class TestGame {
         Alien predator = new Alien(100, 200);
         Human man = new Human(200, 100);
 
-        while (predator.getHealth() != 0 && man.getHealth() != 0) {
+        while (!predator.isDead() && !man.isDead()) {
             if (predator.getEnergy() < 10) {
                 System.out.println("Alien's energy:" + predator.getEnergy());
                 System.out.println("Energy is lower than 10, can't byte!");

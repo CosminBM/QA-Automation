@@ -31,10 +31,6 @@ public class Alien implements Character {
         return this.health <= 0 || isDead;
     }
 
-    public void setDead(boolean dead) {
-        isDead = dead;
-    }
-
     public void biteHuman(Human human) {
         if (this.energy <= 100 && this.energy >= 80) {
             human.setHealth(human.getHealth() - 20);

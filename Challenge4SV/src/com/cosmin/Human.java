@@ -31,10 +31,6 @@ public class Human implements Character {
         return this.health <= 0 || isDead;
     }
 
-    public void setDead(boolean dead) {
-        isDead = dead;
-    }
-
     public void shootAlien(Alien alien) {
         alien.setHealth(alien.getHealth() - 15);
         this.setAmmo(this.getAmmo() - 15);
