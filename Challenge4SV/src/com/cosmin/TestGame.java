@@ -24,7 +24,6 @@ public class TestGame {
             }
 
             if (man.getAmmo() < 15) {
-                man.setAmmo(man.getAmmo());
                 System.out.println("Human's ammo:" + man.getAmmo());
                 System.out.println("Ammo is lower than 15, can't shoot!");
                 break;
