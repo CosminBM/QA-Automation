@@ -8,12 +8,10 @@ public class TestGame {
 
         while (predator.getHealth() != 0 && man.getHealth() != 0) {
             if (predator.getEnergy() < 10) {
-                predator.setEnergy(predator.getEnergy());
                 System.out.println("Alien's energy:" + predator.getEnergy());
                 System.out.println("Energy is lower than 10, can't byte!");
                 break;
             } else if (predator.getHealth() <= 0) {
-                predator.setDead(predator.isDead());
                 System.out.println("Alien's health: " + predator.getHealth());
                 System.out.println("Alien has died!");
                 break;
@@ -31,7 +29,6 @@ public class TestGame {
                 System.out.println("Ammo is lower than 15, can't shoot!");
                 break;
             } else if (man.getHealth() <= 0) {
-                man.setDead(man.isDead());
                 System.out.println("Human's health: " + man.getHealth());
                 System.out.println("Human has died!");
                 break;
@@ -44,12 +41,10 @@ public class TestGame {
             }
 
             if (man.getAmmo() < 15) {
-                man.setAmmo(man.getAmmo());
                 System.out.println("Human's ammo:" + man.getAmmo());
                 System.out.println("Ammo is lower than 15, can't shoot!");
                 break;
             } else if (man.getHealth() <= 0) {
-                man.setDead(man.isDead());
                 System.out.println("Human's health: " + man.getHealth());
                 System.out.println("Human has died!");
                 break;
