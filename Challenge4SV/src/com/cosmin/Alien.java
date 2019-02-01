@@ -3,7 +3,6 @@ package com.cosmin;
 public class Alien implements Character {
     private int energy;
     private int health;
-    private final boolean isDead = false;
 
     public Alien(int energy, int health) {
         this.energy = energy;
@@ -28,7 +27,7 @@ public class Alien implements Character {
 
     @Override
     public boolean isDead() {
-        return this.health <= 0 ? true : isDead;
+        return this.health <= 0;
     }
 
     public void biteHuman(Human human) {
