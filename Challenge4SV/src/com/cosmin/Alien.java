@@ -10,7 +10,7 @@ public class Alien implements Character {
         this.health = health;
     }
 
-    public int getEnergy(){
+    public int getEnergy() {
         return energy;
     }
 
@@ -26,21 +26,22 @@ public class Alien implements Character {
         this.health = health;
     }
 
+    @Override
     public boolean isDead() {
-        return this.health <= 0 ? true : isDead;
+        return this.health <= 0 || isDead;
     }
 
     public void setDead(boolean dead) {
         isDead = dead;
     }
 
-    public void biteHuman(Human human){
-        if(this.energy <= 100 && this.energy >= 80){
-            human.setHealth(getHealth() - 20);
-        } else if (this.energy <= 80 && this.energy >= 60){
-            human.setHealth(getHealth() - 10);
-        } else if (this.energy < 50){
-            human.setHealth(getHealth() - 5);
+    public void biteHuman(Human human) {
+        if (this.energy <= 100 && this.energy >= 80) {
+            human.setHealth(human.getHealth() - 20);
+        } else if (this.energy <= 80 && this.energy >= 60) {
+            human.setHealth(human.getHealth() - 10);
+        } else if (this.energy < 60) {
+            human.setHealth(human.getHealth() - 5);
         }
         this.setEnergy(getEnergy() - 10);
     }

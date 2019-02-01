@@ -26,20 +26,17 @@ public class Human implements Character {
         this.health = health;
     }
 
-    public boolean getDead (){
-        return isDead;
-    }
-
+    @Override
     public boolean isDead() {
-         return this.health <= 0 ? true : isDead;
+        return this.health <= 0 || isDead;
     }
 
     public void setDead(boolean dead) {
         isDead = dead;
     }
 
-    public void shootAlien(Alien alien){
-        alien.setHealth(alien.getHealth() - 15);;
+    public void shootAlien(Alien alien) {
+        alien.setHealth(alien.getHealth() - 15);
         this.setAmmo(this.getAmmo() - 15);
     }
 }
