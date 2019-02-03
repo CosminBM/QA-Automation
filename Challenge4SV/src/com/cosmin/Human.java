@@ -5,8 +5,6 @@ public class Human implements Character {
     private int health = 100;
 
     public Human() {
-//        this.ammo = ammo;
-//        this.health = health;
     }
 
     public int getAmmo() {
@@ -19,7 +17,6 @@ public class Human implements Character {
         } else {
             this.ammo = ammo;
         }
-//        this.ammo = ammo;
     }
 
     public int getHealth() {
@@ -32,7 +29,6 @@ public class Human implements Character {
         } else {
             this.health = health;
         }
-//        this.health = health;
     }
 
     @Override

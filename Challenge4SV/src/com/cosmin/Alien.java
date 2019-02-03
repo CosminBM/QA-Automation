@@ -5,8 +5,6 @@ public class Alien implements Character {
     private int health = 200;
 
     public Alien() {
-//        this.energy = energy;
-//        this.health = health;
     }
 
     public int getEnergy() {
@@ -19,7 +17,6 @@ public class Alien implements Character {
         } else {
             this.energy = energy;
         }
-//        this.energy = energy;
     }
 
     public int getHealth() {
@@ -32,7 +29,6 @@ public class Alien implements Character {
         } else {
             this.health = health;
         }
-//        this.health = health;
     }
 
     @Override
