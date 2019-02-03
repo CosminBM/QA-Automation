@@ -23,7 +23,7 @@ public class Human implements Character {
         validateHealth(health);
     }
 
-    public int validateAmmo(int ammo){
+    public int validateAmmo(int ammo) {
         if (ammo < 0 || ammo > 100) {
             System.out.println("The human's ammo must be between 0 - 200");
             System.exit(0);
@@ -33,7 +33,7 @@ public class Human implements Character {
         return ammo;
     }
 
-    public int validateHealth(int health){
+    public int validateHealth(int health) {
         if (health < 0 || health > 100) {
             System.out.println("The human's health must be between 0 - 100");
             System.exit(0);

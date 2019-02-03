@@ -23,7 +23,7 @@ public class Alien implements Character {
         validateHealth(health);
     }
 
-    public int validateEnergy(int energy){
+    public int validateEnergy(int energy) {
         if (energy < 0 || energy > 100) {
             System.out.println("The alien's energy must be between 0 - 100");
             System.exit(0);
@@ -33,7 +33,7 @@ public class Alien implements Character {
         return energy;
     }
 
-    public int validateHealth(int health){
+    public int validateHealth(int health) {
         if (health < 0 || health > 200) {
             System.out.println("The alien's health must be between 0 - 200");
             System.exit(0);

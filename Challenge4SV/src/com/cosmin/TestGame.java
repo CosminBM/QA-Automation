@@ -53,7 +53,7 @@ public class TestGame {
         if (!predator.isDead()) {
             System.out.println("Alien's health: " + predator.getHealth());
             System.out.println("Alien has died!");
-        } else if (!man.isDead()){
+        } else if (!man.isDead()) {
             System.out.println("Human's health: " + man.getHealth());
             System.out.println("Human has died!");
         }
