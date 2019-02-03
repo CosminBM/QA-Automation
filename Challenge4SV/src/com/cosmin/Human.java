@@ -1,12 +1,12 @@
 package com.cosmin;
 
 public class Human implements Character {
-    private int ammo;
-    private int health;
+    private int ammo = 200;
+    private int health = 100;
 
-    public Human(int ammo, int health) {
-        this.ammo = ammo;
-        this.health = health;
+    public Human() {
+//        this.ammo = ammo;
+//        this.health = health;
     }
 
     public int getAmmo() {
@@ -14,7 +14,12 @@ public class Human implements Character {
     }
 
     public void setAmmo(int ammo) {
-        this.ammo = ammo;
+        if (ammo < 0 || ammo > 200) {
+            throw new IllegalArgumentException("The human's ammo must be between 0 - 200");
+        } else {
+            this.ammo = ammo;
+        }
+//        this.ammo = ammo;
     }
 
     public int getHealth() {
@@ -22,12 +27,17 @@ public class Human implements Character {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (health < 0 || health > 100) {
+            throw new IllegalArgumentException("The human's health must be between 0 - 100");
+        } else {
+            this.health = health;
+        }
+//        this.health = health;
     }
 
     @Override
     public boolean isDead() {
-        return this.health <= 0;
+        return this.health > 0;
     }
 
     public void shootAlien(Alien alien) {

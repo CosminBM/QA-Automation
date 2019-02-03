@@ -1,12 +1,12 @@
 package com.cosmin;
 
 public class Alien implements Character {
-    private int energy;
-    private int health;
+    private int energy = 100;
+    private int health = 200;
 
-    public Alien(int energy, int health) {
-        this.energy = energy;
-        this.health = health;
+    public Alien() {
+//        this.energy = energy;
+//        this.health = health;
     }
 
     public int getEnergy() {
@@ -14,7 +14,12 @@ public class Alien implements Character {
     }
 
     public void setEnergy(int energy) {
-        this.energy = energy;
+        if (energy < 0 || energy > 100) {
+            throw new IllegalArgumentException("The alien's energy must be between 0 - 100");
+        } else {
+            this.energy = energy;
+        }
+//        this.energy = energy;
     }
 
     public int getHealth() {
@@ -22,12 +27,17 @@ public class Alien implements Character {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (health < 0 || health > 200) {
+            throw new IllegalArgumentException("The alien's health must be between 0 - 200");
+        } else {
+            this.health = health;
+        }
+//        this.health = health;
     }
 
     @Override
     public boolean isDead() {
-        return this.health <= 0;
+        return this.health > 0;
     }
 
     public void biteHuman(Human human) {

@@ -3,10 +3,10 @@ package com.cosmin;
 public class TestGame {
 
     public static void main(String[] args) {
-        Alien predator = new Alien(100, 200);
-        Human man = new Human(200, 100);
+        Alien predator = new Alien();
+        Human man = new Human();
 
-        while (!predator.isDead() && !man.isDead()) {
+        while (predator.isDead() && man.isDead()) {
             if (predator.getEnergy() < 10) {
                 System.out.println("Alien's energy: " + predator.getEnergy());
                 System.out.println("Energy is lower than 10, can't byte!");
@@ -50,10 +50,10 @@ public class TestGame {
             }
         }
 
-        if (predator.isDead()) {
+        if (!predator.isDead()) {
             System.out.println("Alien's health: " + predator.getHealth());
             System.out.println("Alien has died!");
-        } else if (man.isDead()){
+        } else if (!man.isDead()){
             System.out.println("Human's health: " + man.getHealth());
             System.out.println("Human has died!");
         }
