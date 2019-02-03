@@ -12,11 +12,7 @@ public class Human implements Character {
     }
 
     public void setAmmo(int ammo) {
-        if (ammo < 0 || ammo > 200) {
-            throw new IllegalArgumentException("The human's ammo must be between 0 - 200");
-        } else {
-            this.ammo = ammo;
-        }
+        validateAmmo(ammo);
     }
 
     public int getHealth() {
@@ -24,11 +20,27 @@ public class Human implements Character {
     }
 
     public void setHealth(int health) {
+        validateHealth(health);
+    }
+
+    public int validateAmmo(int ammo){
+        if (ammo < 0 || ammo > 100) {
+            System.out.println("The human's ammo must be between 0 - 200");
+            System.exit(0);
+        } else {
+            this.ammo = ammo;
+        }
+        return ammo;
+    }
+
+    public int validateHealth(int health){
         if (health < 0 || health > 100) {
-            throw new IllegalArgumentException("The human's health must be between 0 - 100");
+            System.out.println("The human's health must be between 0 - 100");
+            System.exit(0);
         } else {
             this.health = health;
         }
+        return health;
     }
 
     @Override

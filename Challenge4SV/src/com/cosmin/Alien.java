@@ -12,11 +12,7 @@ public class Alien implements Character {
     }
 
     public void setEnergy(int energy) {
-        if (energy < 0 || energy > 100) {
-            throw new IllegalArgumentException("The alien's energy must be between 0 - 100");
-        } else {
-            this.energy = energy;
-        }
+        validateEnergy(energy);
     }
 
     public int getHealth() {
@@ -24,11 +20,27 @@ public class Alien implements Character {
     }
 
     public void setHealth(int health) {
+        validateHealth(health);
+    }
+
+    public int validateEnergy(int energy){
+        if (energy < 0 || energy > 100) {
+            System.out.println("The alien's energy must be between 0 - 100");
+            System.exit(0);
+        } else {
+            this.energy = energy;
+        }
+        return energy;
+    }
+
+    public int validateHealth(int health){
         if (health < 0 || health > 200) {
-            throw new IllegalArgumentException("The alien's health must be between 0 - 200");
+            System.out.println("The alien's health must be between 0 - 200");
+            System.exit(0);
         } else {
             this.health = health;
         }
+        return health;
     }
 
     @Override
