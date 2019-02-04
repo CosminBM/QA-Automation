@@ -12,7 +12,7 @@ public class Human implements Character {
     }
 
     public void setAmmo(int ammo) {
-        validateAmmo(ammo);
+        this.ammo = ammo;
     }
 
     public int getHealth() {
@@ -20,14 +20,12 @@ public class Human implements Character {
     }
 
     public void setHealth(int health) {
-        validateHealth(health);
+        this.health = health;
     }
 
     public boolean validateAmmo(int ammo) {
         if (ammo < 1 || ammo > 200) {
             return false;
-        } else {
-            this.ammo = ammo;
         }
         return true;
     }
@@ -35,8 +33,6 @@ public class Human implements Character {
     public boolean validateHealth(int health) {
         if (health < 1 || health > 100) {
             return false;
-        } else {
-            this.health = health;
         }
         return true;
     }
