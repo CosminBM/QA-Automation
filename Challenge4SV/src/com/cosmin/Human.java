@@ -24,7 +24,7 @@ public class Human implements Character {
     }
 
     public int validateAmmo(int ammo) {
-        if (ammo < 0 || ammo > 100) {
+        if (ammo < 0 || ammo > 200) {
             System.out.println("The human's ammo must be between 0 - 200");
             System.exit(0);
         } else {
