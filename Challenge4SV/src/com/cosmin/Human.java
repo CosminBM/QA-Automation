@@ -45,7 +45,7 @@ public class Human implements Character {
 
     @Override
     public boolean isDead() {
-        return this.health > 0;
+        return this.health <= 0;
     }
 
     public void shootAlien(Alien alien) {

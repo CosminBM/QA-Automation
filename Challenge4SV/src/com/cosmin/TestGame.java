@@ -6,7 +6,16 @@ public class TestGame {
         Alien predator = new Alien();
         Human man = new Human();
 
-        while (predator.isDead() && man.isDead()) {
+        if (predator.isDead()) {
+            System.out.println("Alien's health: " + predator.getHealth());
+            System.out.println("Alien has died!");
+        } else if (man.isDead()) {
+            System.out.println("Human's health: " + man.getHealth());
+            System.out.println("Human has died!");
+        }
+
+        while (!predator.isDead() && !man.isDead()) {
+
             if (predator.getEnergy() < 10) {
                 System.out.println("Alien's energy: " + predator.getEnergy());
                 System.out.println("Energy is lower than 10, can't byte!");
@@ -48,14 +57,6 @@ public class TestGame {
                 System.out.println("Alien's health: " + predator.getHealth());
                 System.out.println("-----------------------");
             }
-        }
-
-        if (!predator.isDead()) {
-            System.out.println("Alien's health: " + predator.getHealth());
-            System.out.println("Alien has died!");
-        } else if (!man.isDead()) {
-            System.out.println("Human's health: " + man.getHealth());
-            System.out.println("Human has died!");
         }
     }
 }
