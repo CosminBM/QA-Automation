@@ -6,15 +6,7 @@ public class TestGame {
         Alien predator = new Alien();
         Human man = new Human();
 
-        if (predator.isDead()) {
-            System.out.println("Alien's health: " + predator.getHealth());
-            System.out.println("Alien has died!");
-            return;
-        } else if (man.isDead()) {
-            System.out.println("Human's health: " + man.getHealth());
-            System.out.println("Human has died!");
-            return;
-        } else if (!predator.validateEnergy(predator.getEnergy())) {
+        if (!predator.validateEnergy(predator.getEnergy())) {
             System.out.println("Alien's energy: " + predator.getEnergy());
             System.out.println("The alien's energy must be between 1 - 100");
             return;
@@ -75,6 +67,16 @@ public class TestGame {
                 System.out.println("Alien's health: " + predator.getHealth());
                 System.out.println("-----------------------");
             }
+        }
+
+        if (predator.isDead()) {
+            System.out.println("Alien's health: " + predator.getHealth());
+            System.out.println("Alien has died!");
+            return;
+        } else if (man.isDead()) {
+            System.out.println("Human's health: " + man.getHealth());
+            System.out.println("Human has died!");
+            return;
         }
     }
 }
