@@ -12,6 +12,22 @@ public class TestGame {
         } else if (man.isDead()) {
             System.out.println("Human's health: " + man.getHealth());
             System.out.println("Human has died!");
+        } else if(!predator.validateEnergy(predator.getEnergy())){
+            System.out.println("Alien's energy: " + predator.getEnergy());
+            System.out.println("The alien's energy must be between 1 - 100");
+            return;
+        } else if (!predator.validateHealth(predator.getHealth())){
+            System.out.println("Alien's health: " + predator.getHealth());
+            System.out.println("The alien's health must be between 1 - 200");
+            return;
+        } else if(!man.validateAmmo(man.getAmmo())){
+            System.out.println("Human's ammo: " + man.getAmmo());
+            System.out.println("The human's ammo must be between 1 - 200");
+            return;
+        } else if (!man.validateHealth(man.getHealth())){
+            System.out.println("Human's health: " + man.getHealth());
+            System.out.println("The human's health must be between 1 - 100");
+            return;
         }
 
         while (!predator.isDead() && !man.isDead()) {

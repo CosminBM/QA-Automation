@@ -23,24 +23,22 @@ public class Human implements Character {
         validateHealth(health);
     }
 
-    public int validateAmmo(int ammo) {
-        if (ammo < 0 || ammo > 200) {
-            System.out.println("The human's ammo must be between 0 - 200");
-            System.exit(0);
+    public boolean validateAmmo(int ammo) {
+        if (ammo < 1 || ammo > 200) {
+            return false;
         } else {
             this.ammo = ammo;
         }
-        return ammo;
+        return true;
     }
 
-    public int validateHealth(int health) {
-        if (health < 0 || health > 100) {
-            System.out.println("The human's health must be between 0 - 100");
-            System.exit(0);
+    public boolean validateHealth(int health) {
+        if (health < 1 || health > 100) {
+            return false;
         } else {
             this.health = health;
         }
-        return health;
+        return true;
     }
 
     @Override
