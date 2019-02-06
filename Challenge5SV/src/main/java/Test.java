@@ -72,7 +72,7 @@ public class Test {
 
         driverFirefox.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        driverFirefox.findElement(By.className("email")).sendKeys( "cbadescu@mozilla.com");
+        driverFirefox.findElement(By.className("email")).sendKeys( "jjoko433@yahoo.ro");
 
         driverFirefox.findElement(By.id("password")).sendKeys("Softvision88!");
 
