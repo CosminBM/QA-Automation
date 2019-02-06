@@ -74,7 +74,7 @@ public class Test {
 
         driverFirefox.findElement(By.className("email")).sendKeys( "jjoko433@yahoo.ro");
 
-        driverFirefox.findElement(By.id("password")).sendKeys("Softvision88!");
+        driverFirefox.findElement(By.id("password")).sendKeys("test1234");
 
         driverFirefox.findElement(By.id("submit-btn")).click();
     }
