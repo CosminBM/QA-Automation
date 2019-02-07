@@ -10,13 +10,13 @@ import java.util.concurrent.TimeUnit;
 public class Test {
     public static void main(String[] args) {
         //Chrome Path
-        System.setProperty("webdriver.chrome.driver", "../Challenge5SV/chromedriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "./src/main/resources/chromedriver.exe");
 
         //Firefox Path
-        System.setProperty("webdriver.gecko.driver", "../Challenge5SV/geckodriver/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver.exe");
 
         //Edge Path
-        //System.setProperty("webdriver.edge.driver", "/..Challenge5SV/edgedriver/MicrosoftWebDriver.exe");
+        //System.setProperty("webdriver.edge.driver", "./src/main/resources//MicrosoftWebDriver.exe");
 
         ChromeDriver driverChrome = new ChromeDriver();
 
@@ -74,7 +74,5 @@ public class Test {
 //
 //        WebElement SignInButton = driverEdge.findElement(By.tagName("//*[@class='header_user_info']//*[title()='Log in to your customer account']"));
 //        SignInButton.click();
-
-
     }
 }
