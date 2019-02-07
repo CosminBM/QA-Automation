@@ -10,10 +10,19 @@ import java.util.concurrent.TimeUnit;
 public class Test {
     public static void main(String[] args) {
         //Home path Chrome
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Desktop\\Work\\QA-Automation-Java\\Challenge5SV\\chromedriver\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Desktop\\Work\\QA-Automation-Java\\Challenge5SV\\chromedriver\\chromedriver.exe");
 
         //Work path Chrome
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\cosmin.badescu\\Desktop\\QA-Automation-Java\\Challenge5SV\\chromedriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\cosmin.badescu\\Desktop\\QA-Automation-Java\\Challenge5SV\\chromedriver\\chromedriver.exe");
+
+        //Home path Firefox
+        //System.setProperty("webdriver.gecko.driver", "C:\\Users\\User\\Desktop\\Work\\QA-Automation-Java\\Challenge5SV\\geckodriver\\geckodriver.exe");
+
+        //Work path Firefox
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\cosmin.badescu\\Desktop\\QA-Automation-Java\\Challenge5SV\\geckodriver\\geckodriver.exe");
+
+        //Home path Edge
+        //System.setProperty("webdriver.edge.driver", "C:\\Users\\User\\Desktop\\Work\\QA-Automation-Java\\Challenge5SV\\edgedriver\\MicrosoftWebDriver.exe");
 
         ChromeDriver driverChrome = new ChromeDriver();
 
@@ -34,12 +43,6 @@ public class Test {
 
         driverChrome.quit();
 
-        //Home path Firefox
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\User\\Desktop\\Work\\QA-Automation-Java\\Challenge5SV\\geckodriver\\geckodriver.exe");
-
-        //Work path Firefox
-        //System.setProperty("webdriver.gecko.driver", "C:\\Users\\cosmin.badescu\\Desktop\\QA-Automation-Java\\Challenge5SV\\geckodriver\\geckodriver.exe");
-
         FirefoxDriver driverFirefox = new FirefoxDriver();
 
         driverFirefox.get("http://automationpractice.com/index.php");
@@ -55,9 +58,21 @@ public class Test {
 
         driverFirefox.quit();
 
-        //Home path Edge
-//        System.setProperty("webdriver.edge.driver", "C:\\Users\\User\\Desktop\\Work\\QA-Automation-Java\\Challenge5SV\\edgedriver\\MicrosoftWebDriver.exe");
+//        FirefoxDriver driverFirefox2 = new FirefoxDriver();
 //
+//        driverFirefox2.get("https://addons-dev.allizom.org/en-US/firefox/");
+//        driverFirefox2.manage().window().maximize();
+//
+//        driverFirefox2.findElement(By.xpath("/html/body/div[1]/div/header/div[2]/a[2]")).click();
+//
+//        driverFirefox2.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//
+//        driverFirefox2.findElement(By.className("email")).sendKeys("jjoko433@yahoo.ro");
+//
+//        driverFirefox2.findElement(By.id("password")).sendKeys("test1234");
+//
+//        driverFirefox2.findElement(By.id("submit-btn")).click();
+
 //        WebDriver driverEdge = new EdgeDriver();
 //
 //        driverEdge.get("http://automationpractice.com/index.php");
@@ -66,19 +81,6 @@ public class Test {
 //        WebElement SignInButton = driverEdge.findElement(By.tagName("//*[@class='header_user_info']//*[title()='Log in to your customer account']"));
 //        SignInButton.click();
 
-        FirefoxDriver driverFirefox2 = new FirefoxDriver();
 
-        driverFirefox2.get("https://addons-dev.allizom.org/en-US/firefox/");
-        driverFirefox2.manage().window().maximize();
-
-        driverFirefox2.findElement(By.xpath("/html/body/div[1]/div/header/div[2]/a[2]")).click();
-
-        driverFirefox2.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        driverFirefox2.findElement(By.className("email")).sendKeys("jjoko433@yahoo.ro");
-
-        driverFirefox2.findElement(By.id("password")).sendKeys("test1234");
-
-        driverFirefox2.findElement(By.id("submit-btn")).click();
     }
 }
