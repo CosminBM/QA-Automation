@@ -23,17 +23,17 @@ public class Test {
         driverChrome.get("http://automationpractice.com/index.php");
         driverChrome.manage().window().maximize();
 
-        WebElement SignInButtonChrome = driverChrome.findElement(By.className("login"));
-        SignInButtonChrome.click();
+        WebElement signInButtonChrome = driverChrome.findElement(By.className("login"));
+        signInButtonChrome.click();
 
-        WebElement InputEmail = driverChrome.findElement(By.id("email"));
-        InputEmail.sendKeys("cosmincoco88@gmail.com");
+        WebElement inputEmail = driverChrome.findElement(By.id("email"));
+        inputEmail.sendKeys("cosmincoco88@gmail.com");
 
-        WebElement InputPassword = driverChrome.findElement(By.id("passwd"));
-        InputPassword.sendKeys("test123");
+        WebElement inputPassword = driverChrome.findElement(By.id("passwd"));
+        inputPassword.sendKeys("test123");
 
-        WebElement SubmitLogin = driverChrome.findElement(By.id("SubmitLogin"));
-        SubmitLogin.click();
+        WebElement submitLogin = driverChrome.findElement(By.id("SubmitLogin"));
+        submitLogin.click();
 
         driverChrome.quit();
 
@@ -50,7 +50,7 @@ public class Test {
 
         driverFirefox.findElement(By.xpath("//*[@id=\"SubmitLogin\"]")).click();
 
-        driverFirefox.quit();
+        driverFirefox.close();
 
         FirefoxDriver driverFirefox2 = new FirefoxDriver();
 
