@@ -40,6 +40,8 @@ public class LoginTest {
         WebElement submitLogin = driverChrome.findElement(By.id("SubmitLogin"));
         submitLogin.click();
 
+        WebElement userName = driverChrome.findElement(By.xpath("//span[contains(text(),'Cosmin Cosmin')]"));
+        Assert.assertEquals(userName.getText(),"Cosmin Cosmin");
     }
 
     @Test(priority = 1)
