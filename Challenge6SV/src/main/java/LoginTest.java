@@ -38,7 +38,6 @@ public class LoginTest {
 
     @Test(priority = 3)
     public void testValidLogin(){
-        //Insert valid credentials
         //Input email
         WebElement inputEmail = driverChrome.findElement(By.cssSelector("#email"));
         inputEmail.clear();
@@ -66,7 +65,6 @@ public class LoginTest {
 
     @Test(priority = 2)
     public void testInvalidPassword(){
-        //Insert invalid password
         String invalidPassword = "test1234";
         //Input email
         WebElement inputEmail = driverChrome.findElement(By.id("email"));
@@ -90,7 +88,6 @@ public class LoginTest {
 
     @Test(priority = 1)
     public void testInvalidEmail(){
-        //Insert invalid email
         String invalidEmail = "cosmincoco886@gmail.com";
         //Input email
         WebElement inputEmail = driverChrome.findElement(By.id("email"));
