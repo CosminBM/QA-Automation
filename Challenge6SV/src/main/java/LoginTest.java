@@ -2,7 +2,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -11,71 +10,106 @@ import org.testng.annotations.Test;
 
 public class LoginTest {
 
-   public ChromeDriver driverChrome;
+   private ChromeDriver driverChrome;
+   private String testURL = "http://automationpractice.com/index.php";
+   private String driverPath = "./src/main/resources/chromedriver.exe";
+   private String validEmail = "cosmincoco88@gmail.com";
+   private String validPassword = "test123";
 
     @BeforeClass
     public void openURL(){
-        System.setProperty("webdriver.chrome.driver", "./src/main/resources/chromedriver.exe");
+        //Load the URL in the webpage
+        System.setProperty("webdriver.chrome.driver", driverPath);
         driverChrome = new ChromeDriver();
-        driverChrome.get("http://automationpractice.com/index.php");
+        driverChrome.get(testURL);
         driverChrome.manage().window().maximize();
+        //Check the loaded webpage
+        String expectedHomePage = "http://automationpractice.com/index.php";
+        String actualHomePage = driverChrome.getCurrentUrl();
+        Assert.assertEquals(actualHomePage, expectedHomePage);
+        //Click on the Sign in button
         WebElement signInButtonChrome = driverChrome.findElement(By.className("login"));
         signInButtonChrome.click();
-        System.out.println("Open the login URL before test");
+        //Check the login page
+        String expectedLoginPage = "http://automationpractice.com/index.php?controller=authentication&back=my-account";
+        String actualLoginPage = driverChrome.getCurrentUrl();
+        Assert.assertEquals(actualLoginPage,expectedLoginPage);
     }
 
     @Test(priority = 3)
     public void testValidLogin(){
-        System.out.println("Test valid Login");
-        WebElement inputEmail = driverChrome.findElement(By.id("email"));
+        //Insert valid credentials
+        //Input email
+        WebElement inputEmail = driverChrome.findElement(By.cssSelector("#email"));
         inputEmail.clear();
-        inputEmail.sendKeys("cosmincoco88@gmail.com");
-        Assert.assertEquals("cosmincoco88@gmail.com","cosmincoco88@gmail.com");
-
-        WebElement inputPassword = driverChrome.findElement(By.id("passwd"));
+        inputEmail.sendKeys(validEmail);
+        //Check the email
+        Assert.assertEquals(inputEmail.getAttribute("value"),validEmail);
+        //Input password
+        WebElement inputPassword = driverChrome.findElement(By.cssSelector("#passwd"));
         inputPassword.clear();
-        inputPassword.sendKeys("test123");
-        Assert.assertEquals("test123", "test123");
-
-        WebElement submitLogin = driverChrome.findElement(By.id("SubmitLogin"));
+        inputPassword.sendKeys(validPassword);
+        //Check the password
+        Assert.assertEquals(inputPassword.getAttribute("value"),validPassword);
+        //Click on the login button
+        WebElement submitLogin = driverChrome.findElement(By.cssSelector("#SubmitLogin"));
         submitLogin.click();
-
-        WebElement userName = driverChrome.findElement(By.xpath("//span[contains(text(),'Cosmin Cosmin')]"));
-        Assert.assertEquals(userName.getText(),"Cosmin Cosmin");
-    }
-
-    @Test(priority = 1)
-    public void testInvalidPassword(){
-        System.out.println("Test invalid Password");
-        WebElement inputEmail = driverChrome.findElement(By.id("email"));
-        inputEmail.clear();
-        inputEmail.sendKeys("cosmincoco88@gmail.com");
-        Assert.assertEquals("cosmincoco88@gmail.com","cosmincoco88@gmail.com");
-
-        WebElement inputPassword = driverChrome.findElement(By.id("passwd"));
-        inputPassword.clear();
-        inputPassword.sendKeys("test1234");
-        Assert.assertEquals("test1234", "test1234");
-
-        WebElement submitLogin = driverChrome.findElement(By.id("SubmitLogin"));
-        submitLogin.click();
+        //Check the user page
+        String expectedUserPage = "http://automationpractice.com/index.php?controller=my-account";
+        String actualUserPage = driverChrome.getCurrentUrl();
+        Assert.assertEquals(expectedUserPage,actualUserPage);
+        //Check the user name
+        String expectedUserName = "Cosmin Cosmin";
+        WebElement actualUserName = driverChrome.findElement(By.xpath("//span[contains(text(),'Cosmin Cosmin')]"));
+        Assert.assertEquals(expectedUserName,actualUserName.getText());
     }
 
     @Test(priority = 2)
-    public void testInvalidEmail(){
-        System.out.println("Test invalid Email");
+    public void testInvalidPassword(){
+        //Insert invalid password
+        String invalidPassword = "test1234";
+        //Input email
         WebElement inputEmail = driverChrome.findElement(By.id("email"));
         inputEmail.clear();
-        inputEmail.sendKeys("cosmincoco886@gmail.com");
-        Assert.assertEquals("cosmincoco886@gmail.com","cosmincoco886@gmail.com");
-
+        inputEmail.sendKeys(validEmail);
+        //Check the email
+        Assert.assertEquals(inputEmail.getAttribute("value"),validEmail);
+        //Input password
         WebElement inputPassword = driverChrome.findElement(By.id("passwd"));
         inputPassword.clear();
-        inputPassword.sendKeys("test123");
-        Assert.assertEquals("test123", "test123");
-
+        inputPassword.sendKeys(invalidPassword);
+        //Check the invalid password
+        Assert.assertNotSame(invalidPassword,validPassword);
+        //Click on the login button
         WebElement submitLogin = driverChrome.findElement(By.id("SubmitLogin"));
         submitLogin.click();
+        //Check the error message
+        WebElement authMessage = driverChrome.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]"));
+        Assert.assertTrue(authMessage.isDisplayed());
+    }
+
+    @Test(priority = 1)
+    public void testInvalidEmail(){
+        //Insert invalid email
+        String invalidEmail = "cosmincoco886@gmail.com";
+        //Input email
+        WebElement inputEmail = driverChrome.findElement(By.id("email"));
+        inputEmail.clear();
+        inputEmail.sendKeys(invalidEmail);
+        //Check the invalid email
+        Assert.assertNotSame(invalidEmail, validEmail);
+        //Input password
+        WebElement inputPassword = driverChrome.findElement(By.id("passwd"));
+        inputPassword.clear();
+        inputPassword.sendKeys(validPassword);
+        //Check the password
+        Assert.assertEquals(inputPassword.getAttribute("value"), validPassword);
+        //Click on the login button
+        WebElement submitLogin = driverChrome.findElement(By.id("SubmitLogin"));
+        submitLogin.click();
+        //Check the error message
+        WebElement authMessage = driverChrome.findElement(By.xpath("//li[contains(text(),'Authentication failed.')]"));
+        Assert.assertTrue(authMessage.isDisplayed());
     }
 
     @AfterClass
