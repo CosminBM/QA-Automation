@@ -11,15 +11,17 @@ import org.testng.annotations.Test;
 public class LoginTest {
 
    private ChromeDriver driverChrome;
+   private FirefoxDriver driverFirefox;
    private String testURL = "http://automationpractice.com/index.php";
-   private String driverPath = "./src/main/resources/chromedriver.exe";
+   private String driverPathChrome = "./src/main/resources/chromedriver.exe";
+   private String driverPathFirefox = "./src/main/resources/geckodriver.exe";
    private String validEmail = "cosmincoco88@gmail.com";
    private String validPassword = "test123";
 
     @BeforeClass
-    public void openURL(){
+    public void openURLChrome(){
         //Load the URL in the webpage
-        System.setProperty("webdriver.chrome.driver", driverPath);
+        System.setProperty("webdriver.chrome.driver", driverPathChrome);
         driverChrome = new ChromeDriver();
         driverChrome.get(testURL);
         driverChrome.manage().window().maximize();
@@ -37,7 +39,7 @@ public class LoginTest {
     }
 
     @Test(priority = 3)
-    public void testValidLogin(){
+    public void testValidLoginChrome(){
         //Input email
         WebElement inputEmail = driverChrome.findElement(By.cssSelector("#email"));
         inputEmail.clear();
@@ -64,7 +66,7 @@ public class LoginTest {
     }
 
     @Test(priority = 2)
-    public void testInvalidPassword(){
+    public void testInvalidPasswordChrome(){
         String invalidPassword = "test1234";
         //Input email
         WebElement inputEmail = driverChrome.findElement(By.id("email"));
@@ -87,7 +89,7 @@ public class LoginTest {
     }
 
     @Test(priority = 1)
-    public void testInvalidEmail(){
+    public void testInvalidEmailChrome(){
         String invalidEmail = "cosmincoco886@gmail.com";
         //Input email
         WebElement inputEmail = driverChrome.findElement(By.id("email"));
@@ -110,8 +112,61 @@ public class LoginTest {
     }
 
     @AfterClass
-    public void closeWebPage(){
+    public void closeWebPageChrome(){
         driverChrome.quit();
         System.out.println("Quit Chrome");
+    }
+
+    @BeforeClass
+    public void openURLFirefox(){
+        //Load the URL in the webpage
+        System.setProperty("webdriver.gecko.driver", driverPathFirefox);
+        driverFirefox = new FirefoxDriver();
+        driverFirefox.get(testURL);
+        driverFirefox.manage().window().maximize();
+        //Check the loaded webpage
+        String expectedHomePage = "http://automationpractice.com/index.php";
+        String actualHomePage = driverFirefox.getCurrentUrl();
+        Assert.assertEquals(expectedHomePage, actualHomePage);
+        //Click on the Sign in button
+        WebElement signInButtonChrome = driverFirefox.findElement(By.className("login"));
+        signInButtonChrome.click();
+        //Check the login page
+        String expectedLoginPage = "http://automationpractice.com/index.php?controller=authentication&back=my-account";
+        String actualLoginPage = driverFirefox.getCurrentUrl();
+        Assert.assertEquals(expectedLoginPage, actualLoginPage);
+    }
+
+    @Test(priority = 3)
+    public void testValidLoginFirefox(){
+        //Input email
+        WebElement inputEmail = driverFirefox.findElement(By.cssSelector("#email"));
+        inputEmail.clear();
+        inputEmail.sendKeys(validEmail);
+        //Check the email
+        Assert.assertEquals(validEmail, inputEmail.getAttribute("value"));
+        //Input password
+        WebElement inputPassword = driverFirefox.findElement(By.cssSelector("#passwd"));
+        inputPassword.clear();
+        inputPassword.sendKeys(validPassword);
+        //Check the password
+        Assert.assertEquals(validPassword, inputPassword.getAttribute("value"));
+        //Click on the login button
+        WebElement submitLogin = driverFirefox.findElement(By.cssSelector("#SubmitLogin"));
+        submitLogin.click();
+        //Check the user page
+        String expectedUserPage = "http://automationpractice.com/index.php?controller=my-account";
+        String actualUserPage = driverFirefox.getCurrentUrl();
+        Assert.assertEquals(expectedUserPage,actualUserPage);
+        //Check the user name
+        String expectedUserName = "Cosmin Cosmin";
+        WebElement actualUserName = driverFirefox.findElement(By.xpath("//span[contains(text(),'Cosmin Cosmin')]"));
+        Assert.assertEquals(expectedUserName,actualUserName.getText());
+    }
+
+    @AfterClass
+    public void closeWebPageFirefox(){
+        driverFirefox.quit();
+        System.out.println("Quit Firefox");
     }
 }
