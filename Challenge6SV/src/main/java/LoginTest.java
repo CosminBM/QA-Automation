@@ -26,14 +26,14 @@ public class LoginTest {
         //Check the loaded webpage
         String expectedHomePage = "http://automationpractice.com/index.php";
         String actualHomePage = driverChrome.getCurrentUrl();
-        Assert.assertEquals(actualHomePage, expectedHomePage);
+        Assert.assertEquals(expectedHomePage, actualHomePage);
         //Click on the Sign in button
         WebElement signInButtonChrome = driverChrome.findElement(By.className("login"));
         signInButtonChrome.click();
         //Check the login page
         String expectedLoginPage = "http://automationpractice.com/index.php?controller=authentication&back=my-account";
         String actualLoginPage = driverChrome.getCurrentUrl();
-        Assert.assertEquals(actualLoginPage,expectedLoginPage);
+        Assert.assertEquals(expectedLoginPage, actualLoginPage);
     }
 
     @Test(priority = 3)
@@ -43,13 +43,13 @@ public class LoginTest {
         inputEmail.clear();
         inputEmail.sendKeys(validEmail);
         //Check the email
-        Assert.assertEquals(inputEmail.getAttribute("value"),validEmail);
+        Assert.assertEquals(validEmail, inputEmail.getAttribute("value"));
         //Input password
         WebElement inputPassword = driverChrome.findElement(By.cssSelector("#passwd"));
         inputPassword.clear();
         inputPassword.sendKeys(validPassword);
         //Check the password
-        Assert.assertEquals(inputPassword.getAttribute("value"),validPassword);
+        Assert.assertEquals(validPassword, inputPassword.getAttribute("value"));
         //Click on the login button
         WebElement submitLogin = driverChrome.findElement(By.cssSelector("#SubmitLogin"));
         submitLogin.click();
@@ -71,13 +71,13 @@ public class LoginTest {
         inputEmail.clear();
         inputEmail.sendKeys(validEmail);
         //Check the email
-        Assert.assertEquals(inputEmail.getAttribute("value"),validEmail);
+        Assert.assertEquals(validEmail, inputEmail.getAttribute("value"));
         //Input password
         WebElement inputPassword = driverChrome.findElement(By.id("passwd"));
         inputPassword.clear();
         inputPassword.sendKeys(invalidPassword);
         //Check the invalid password
-        Assert.assertNotSame(invalidPassword,validPassword);
+        Assert.assertNotSame(validPassword, invalidPassword);
         //Click on the login button
         WebElement submitLogin = driverChrome.findElement(By.id("SubmitLogin"));
         submitLogin.click();
@@ -94,13 +94,13 @@ public class LoginTest {
         inputEmail.clear();
         inputEmail.sendKeys(invalidEmail);
         //Check the invalid email
-        Assert.assertNotSame(invalidEmail, validEmail);
+        Assert.assertNotSame(validEmail, invalidEmail);
         //Input password
         WebElement inputPassword = driverChrome.findElement(By.id("passwd"));
         inputPassword.clear();
         inputPassword.sendKeys(validPassword);
         //Check the password
-        Assert.assertEquals(inputPassword.getAttribute("value"), validPassword);
+        Assert.assertEquals(validPassword,inputPassword.getAttribute("value"));
         //Click on the login button
         WebElement submitLogin = driverChrome.findElement(By.id("SubmitLogin"));
         submitLogin.click();
